@@ -1,0 +1,143 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biz Directory</title>
+<style>
+:root{--bg:#070914;--tx:#eef0ff;--mu:#9aa3c7;--gl:rgba(255,255,255,.06);--bd:rgba(255,255,255,.12);--pr:#7c6cff;--pr2:#22d3ee;--sh:0 10px 40px #0007}
+[data-theme=light]{--bg:#eef1fb;--tx:#151a33;--mu:#5d6690;--gl:rgba(255,255,255,.65);--bd:rgba(30,40,90,.12);--sh:0 10px 30px #3b4cca22}
+*{box-sizing:border-box;margin:0;font-family:Inter,system-ui,sans-serif}
+body{background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;transition:.3s}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.bg i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.45;animation:fl 18s ease-in-out infinite alternate}
+.bg i:nth-child(1){width:480px;height:480px;background:#7c6cff;top:-120px;left:-100px}
+.bg i:nth-child(2){width:420px;height:420px;background:#22d3ee;right:-120px;top:20%;animation-delay:-6s}
+.bg i:nth-child(3){width:380px;height:380px;background:#f472b6;bottom:-120px;left:30%;animation-delay:-12s}
+[data-theme=light] .bg i{opacity:.28}
+.bg:after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:48px 48px;opacity:.35;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+@keyframes fl{to{transform:translate(70px,50px) scale(1.15)}}
+nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:var(--gl);backdrop-filter:blur(16px);border-bottom:1px solid var(--bd)}
+.lg{font-weight:800;font-size:19px;background:linear-gradient(90deg,var(--pr),var(--pr2));-webkit-background-clip:text;color:transparent}
+.nb{display:flex;gap:8px}
+button,input,select,textarea{font-size:15px;color:var(--tx);background:var(--gl);border:1px solid var(--bd);border-radius:12px;padding:11px 15px;outline:0;backdrop-filter:blur(10px)}
+input:focus,select:focus,textarea:focus{border-color:var(--pr);box-shadow:0 0 0 3px #7c6cff33}
+button{cursor:pointer;transition:.2s}button:hover{transform:translateY(-1px)}
+.pr{background:linear-gradient(135deg,var(--pr),var(--pr2));border:0;color:#fff;font-weight:600}
+.pr:disabled{opacity:.35;cursor:default;transform:none}
+.w{max-width:1150px;margin:auto;padding:0 5% 50px}
+.hero{text-align:center;padding:60px 0 30px}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;font-weight:800}
+.hero h1 span{background:linear-gradient(90deg,var(--pr),var(--pr2),#f472b6);-webkit-background-clip:text;color:transparent}
+.hero p{color:var(--mu);margin:12px 0 26px}
+.sb{display:flex;gap:10px;max-width:680px;margin:auto;padding:8px;background:var(--gl);border:1px solid var(--bd);border-radius:18px;backdrop-filter:blur(16px);box-shadow:var(--sh)}
+.sb input{flex:1;border:0;background:transparent;backdrop-filter:none}
+.sb input:focus{box-shadow:none}
+.st{display:flex;justify-content:center;gap:34px;margin-top:26px;color:var(--mu);font-size:13px}
+.st b{display:block;color:var(--tx);font-size:22px}
+.chs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:26px 0}
+.ch{border-radius:30px;padding:8px 18px}
+.ch.on{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;border:0}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.c{position:relative;background:var(--gl);border:1px solid var(--bd);border-radius:20px;padding:18px;cursor:pointer;backdrop-filter:blur(14px);transition:.25s;animation:in .4s both}
+.c:hover{transform:translateY(-6px);box-shadow:var(--sh);border-color:var(--pr)}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+.av{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:18px}
+.rt{position:absolute;top:16px;right:16px;font-size:13px;background:#fbbf2422;color:#fbbf24;padding:3px 10px;border-radius:20px;font-weight:600}
+.c h3{margin:14px 0 4px;font-size:17px}
+.c small{color:var(--mu)}
+.c p{color:var(--mu);font-size:13px;margin-top:10px;line-height:1.5}
+.tg{display:inline-block;margin-top:12px;font-size:12px;padding:3px 11px;border-radius:20px;background:#7c6cff25;color:var(--pr)}
+.sk{height:190px;border-radius:20px;background:linear-gradient(90deg,var(--gl),var(--bd),var(--gl));background-size:200% 100%;animation:sh 1.2s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.m{grid-column:1/-1;text-align:center;color:var(--mu);padding:40px}
+.pg{display:flex;gap:14px;justify-content:center;align-items:center;margin-top:30px;color:var(--mu)}
+#d{background:var(--gl);border:1px solid var(--bd);border-radius:24px;padding:30px;backdrop-filter:blur(16px);box-shadow:var(--sh);margin-top:30px}
+#d a{color:var(--pr);text-decoration:none;font-weight:600}
+#d .av{width:72px;height:72px;font-size:28px;margin:18px 0 12px}
+#d h2{font-size:28px}
+.dl{background:#ef4444;border:0;color:#fff}
+dialog{margin:auto;border:1px solid var(--bd);border-radius:22px;padding:24px;width:min(420px,92vw);background:var(--bg);color:var(--tx);box-shadow:var(--sh)}
+dialog::backdrop{background:#0009;backdrop-filter:blur(4px)}
+#add{display:grid;gap:10px;margin-top:14px}
+.ts{position:fixed;bottom:22px;left:50%;transform:translate(-50%,90px);background:var(--tx);color:var(--bg);padding:12px 22px;border-radius:30px;font-weight:600;transition:.35s;z-index:9}
+.ts.on{transform:translate(-50%,0)}
+</style></head><body>
+<div class="bg"><i></i><i></i><i></i></div>
+<nav><div class="lg">◆ BizDirectory</div>
+ <div class="nb"><button id="th" title="Theme">🌙</button><button class="pr" id="op">+ Add Business</button></div></nav>
+<div class="w">
+ <div id="list">
+  <div class="hero">
+   <h1>Discover the <span>best businesses</span> in your city</h1>
+   <p>Search, filter and view details instantly</p>
+   <div class="sb"><input id="s" placeholder="🔍  Search by name, city or description..."><select id="so"><option value="id">Default</option><option value="rating">Top rated</option><option value="name">A to Z</option></select></div>
+   <div class="st"><div><b id="n1">0</b>Results</div><div><b>4</b>Categories</div><div><b>4</b>Cities</div></div>
+  </div>
+  <div class="chs">
+   <button class="ch on" data-c="">All</button><button class="ch" data-c="Food">🍔 Food</button><button class="ch" data-c="Tech">💻 Tech</button><button class="ch" data-c="Health">🏥 Health</button><button class="ch" data-c="Education">🎓 Education</button>
+  </div>
+  <div class="g" id="g"></div>
+  <div class="pg"><button id="pv">← Prev</button><span id="pi"></span><button id="nx" class="pr">Next →</button></div>
+ </div>
+ <div id="d" hidden></div>
+</div>
+<dialog id="dg"><h3>➕ New Business</h3>
+ <form id="add">
+  <input id="an" placeholder="Name" required>
+  <select id="ac"><option>Food</option><option>Tech</option><option>Health</option><option>Education</option></select>
+  <input id="ay" placeholder="City">
+  <textarea id="ad" rows="3" placeholder="Description"></textarea>
+  <input id="ak" type="password" placeholder="Admin key" required>
+  <div style="display:flex;gap:8px"><button class="pr" style="flex:1">Add</button><button type="button" id="cl">Cancel</button></div>
+ </form></dialog>
+<div class="ts" id="ts"></div>
+<script>
+const $=i=>document.getElementById(i),N=12,I={Food:'🍔',Tech:'💻',Health:'🏥',Education:'🎓'};
+const GR=['#7c6cff,#22d3ee','#f472b6,#fb923c','#34d399,#22d3ee','#a78bfa,#f472b6','#fbbf24,#f87171'];
+let p=1,T=0,cat='',tm;
+const E=s=>String(s??'').replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+const av=i=>`<div class="av" style="background:linear-gradient(135deg,${GR[i.id%5]})">${E(i.name).charAt(0)}</div>`;
+function toast(t){const e=$('ts');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2200)}
+
+function setT(t){document.documentElement.dataset.theme=t;$('th').textContent=t=='dark'?'🌙':'☀️';try{localStorage.setItem('t',t)}catch(e){}}
+let t0='dark';try{t0=localStorage.getItem('t')||'dark'}catch(e){}setT(t0);
+$('th').onclick=()=>setT(document.documentElement.dataset.theme=='dark'?'light':'dark');
+
+async function load(){
+ $('g').innerHTML='<div class="sk"></div>'.repeat(6);
+ const r=await(await fetch(`/api/items?s=${encodeURIComponent($('s').value)}&cat=${cat}&sort=${$('so').value}&p=${p}&n=${N}`)).json();
+ T=r.total;$('n1').textContent=T;
+ $('g').innerHTML=r.items.map((i,k)=>`<div class="c" style="animation-delay:${k*35}ms" onclick="location.hash='#/${i.id}'">${av(i)}<span class="rt">⭐ ${i.rating}</span><h3>${E(i.name)}</h3><small>📍 ${E(i.city)}</small><p>${E(i.about).slice(0,80)}</p><span class="tg">${I[i.cat]||''} ${E(i.cat)}</span></div>`).join('')||'<p class="m">No results found 😕</p>';
+ $('pi').textContent=`Page ${p} / ${Math.max(1,Math.ceil(T/N))}`;
+ $('pv').disabled=p<=1;$('nx').disabled=p*N>=T;
+}
+$('s').oninput=()=>{clearTimeout(tm);tm=setTimeout(()=>{p=1;load()},250)};
+$('so').onchange=()=>{p=1;load()};
+$('pv').onclick=()=>{p--;load();scrollTo({top:300,behavior:'smooth'})};
+$('nx').onclick=()=>{p++;load();scrollTo({top:300,behavior:'smooth'})};
+document.querySelectorAll('.ch').forEach(b=>b.onclick=()=>{cat=b.dataset.c;document.querySelectorAll('.ch').forEach(x=>x.classList.toggle('on',x===b));p=1;load()});
+
+$('op').onclick=()=>$('dg').showModal();$('cl').onclick=()=>$('dg').close();
+$('add').onsubmit=async e=>{
+ e.preventDefault();
+ const r=await fetch('/api/items',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:$('an').value,cat:$('ac').value,city:$('ay').value,about:$('ad').value,key:$('ak').value})});
+ const j=await r.json();
+ if(r.ok){e.target.reset();$('dg').close();toast('Business added ✅');load()}else toast('❌ '+j.err);
+};
+
+async function route(){
+ const id=location.hash.slice(2);
+ $('list').hidden=!!id;$('d').hidden=!id;
+ if(!id)return load();
+ const r=await fetch('/api/items/'+id);
+ if(!r.ok){$('d').innerHTML='<p>Not found</p><a href="#">← Back</a>';return}
+ const i=await r.json();
+ $('d').innerHTML=`<a href="#">← Back</a>${av(i)}<h2>${E(i.name)}</h2>
+ <p style="color:var(--mu);margin:6px 0">📍 ${E(i.city)} · ⭐ ${i.rating}</p><span class="tg">${I[i.cat]||''} ${E(i.cat)}</span>
+ <p style="margin:20px 0;line-height:1.7">${E(i.about)}</p>
+ <input id="dk" type="password" placeholder="Admin key"> <button class="dl" onclick="del(${i.id})">🗑 Delete</button>`;
+}
+async function del(id){
+ const r=await fetch(`/api/items/${id}?key=${encodeURIComponent($('dk').value)}`,{method:'DELETE'});
+ if(r.ok){location.hash='';toast('Deleted 🗑')}else toast('❌ Wrong key');
+}
+addEventListener('hashchange',route);route();
+</script></body></html>
